@@ -34,7 +34,7 @@ the wallpaper if a matching image exists in `~/Pictures/`, and restarts i3.
 **Requirements:** fresh Arch Linux install with `git` and `stow` available.
 
 ```bash
-git clone https://github.com/ax93/dotfiles.git ~/dotfiles
+git clone https://github.com/rauti0/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 bash desktop.sh
 ```
