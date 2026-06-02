@@ -1,0 +1,12 @@
+- name: Set active palette
+  ansible.builtin.file:
+    src: "palettes/{{ theme_palette }}.env"
+    dest: "{{ ansible_facts.env.HOME }}/.config/theme/palette.env"
+    state: link
+    force: true
+
+- name: Render theme configs
+  ansible.builtin.command:
+    cmd: "{{ ansible_facts.env.HOME }}/.config/theme/build.sh"
+  register: theme_build
+  changed_when: "'built' in theme_build.stdout"

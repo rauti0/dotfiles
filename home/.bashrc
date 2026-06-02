@@ -37,7 +37,7 @@ theme() {
 }
 
 alias green='theme green'
-alias neon='theme neon'
+alias purple='theme purple'
 
 podman() {
     case "$1" in

@@ -17,7 +17,7 @@ client.focused_inactive  ${sem_surface_hi} ${sem_surface_hi} ${sem_fg_dim}     $
 client.urgent            ${sem_danger}     ${sem_danger}     ${sem_fg}         ${sem_danger}     ${sem_danger}
 
 
-exec_always --no-startup-id feh --bg-fill ~/Pictures/green.jpg
+exec_always --no-startup-id feh --bg-fill ${sem_wallpaper}
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id picom -b
 exec_always --no-startup-id setxkbmap fi -variant nodeadkeys
