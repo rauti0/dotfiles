@@ -1,0 +1,10 @@
+dotfiles_root: "{{ playbook_dir }}/.."
+
+dotfile_links:
+  - { src: "home/.bashrc",     dest: "{{ ansible_env.HOME }}/.bashrc" }
+  - { src: "config/alacritty", dest: "{{ ansible_env.HOME }}/.config/alacritty" }
+  - { src: "config/i3",        dest: "{{ ansible_env.HOME }}/.config/i3" }
+  - { src: "config/picom",     dest: "{{ ansible_env.HOME }}/.config/picom" }
+  - { src: "config/polybar",   dest: "{{ ansible_env.HOME }}/.config/polybar" }
+  - { src: "config/rofi",      dest: "{{ ansible_env.HOME }}/.config/rofi" }
+  - { src: "config/theme",     dest: "{{ ansible_env.HOME }}/.config/theme" }

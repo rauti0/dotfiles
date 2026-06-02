@@ -1,0 +1,5 @@
+- name: Configure Arch environment
+  hosts: localhost
+  roles:
+    - packages
+    - dotfiles

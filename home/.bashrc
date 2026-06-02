@@ -39,6 +39,19 @@ theme() {
 alias green='theme green'
 alias neon='theme neon'
 
+podman() {
+    case "$1" in
+        run|create)
+            local cmd=$1
+            shift
+            command podman "$cmd" --init "$@"
+            ;;
+        *)
+            command podman "$@"
+            ;;
+    esac
+}
+
 PS1='[\u@\h \W]\$ '
 
 export PATH="$HOME/.local/bin:$PATH"

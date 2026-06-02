@@ -1,0 +1,14 @@
+- name: ensure parent directories exist
+  ansible.builtin.file:
+    path: "{{ item.dest | dirname }}"
+    state: directory
+    mode: "0755"
+  loop: "{{ dotfile_links }}"
+
+- name: create dotfile symlinks
+  ansible.builtin.file:
+    src: "{{ (dotfiles_root ~ '/' ~ item.src) | realpath }}"
+    dest: "{{ item.dest }}"
+    state: link
+    force: true
+  loop: "{{ dotfile_links }}"
