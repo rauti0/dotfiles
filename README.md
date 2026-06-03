@@ -34,19 +34,12 @@ the wallpaper if a matching image exists in `~/Pictures/`, and restarts i3.
 
 ```bash
 git clone https://github.com/rauti0/dotfiles.git ~/dotfiles
-
-cd ~/dotfiles
-
+cd ~/dotfiles/ansible
 ansible-playbook playbook.yml --ask-become-pass
 ```
 
 This installs the packages from the `packages` role and symlinks all configs
-into place. Then build the theme and enable the display manager:
-
-```bash
-~/.config/theme/build.sh
-sudo systemctl enable --now lightdm
-```
+into place. 
 
 ## Structure
 
