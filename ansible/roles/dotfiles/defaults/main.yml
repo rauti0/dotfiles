@@ -1,10 +1,12 @@
 dotfiles_root: "{{ playbook_dir }}/.."
 
 dotfile_links:
-  - { src: "home/.bashrc",     dest: "{{ ansible_facts.env.HOME }}/.bashrc" }
-  - { src: "config/alacritty", dest: "{{ ansible_facts.env.HOME }}/.config/alacritty" }
-  - { src: "config/i3",        dest: "{{ ansible_facts.env.HOME }}/.config/i3" }
-  - { src: "config/picom",     dest: "{{ ansible_facts.env.HOME }}/.config/picom" }
-  - { src: "config/polybar",   dest: "{{ ansible_facts.env.HOME }}/.config/polybar" }
-  - { src: "config/rofi",      dest: "{{ ansible_facts.env.HOME }}/.config/rofi" }
-  - { src: "config/theme",     dest: "{{ ansible_facts.env.HOME }}/.config/theme" }
+  - { src: "home/.bashrc",       dest: "{{ ansible_facts.env.HOME }}/.bashrc" }
+  - { src: "home/.bash_aliases", dest: "{{ ansible_facts.env.HOME }}/.bash_aliases" }
+  - { src: "config/bash",        dest: "{{ ansible_facts.env.HOME }}/.config/bash" }
+  - { src: "config/alacritty",   dest: "{{ ansible_facts.env.HOME }}/.config/alacritty" }
+  - { src: "config/i3",          dest: "{{ ansible_facts.env.HOME }}/.config/i3" }
+  - { src: "config/picom",       dest: "{{ ansible_facts.env.HOME }}/.config/picom" }
+  - { src: "config/polybar",     dest: "{{ ansible_facts.env.HOME }}/.config/polybar" }
+  - { src: "config/rofi",        dest: "{{ ansible_facts.env.HOME }}/.config/rofi" }
+  - { src: "config/theme",       dest: "{{ ansible_facts.env.HOME }}/.config/theme" }

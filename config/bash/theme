@@ -1,0 +1,16 @@
+theme() {
+    local name="$1"
+    local theme_dir="$HOME/.config/theme"
+    local target="palettes/${name}.env"
+    local wallpaper="$HOME/Pictures/${name}.jpg"
+    if [[ ! -f "$theme_dir/$target" ]]; then
+        echo "no palette: $name" >&2
+        echo "available: $(ls "$theme_dir/palettes/"*.env | xargs -n1 basename | sed 's/\.env$//' | tr '\n' ' ')" >&2
+        return 1
+    fi
+    ln -sf "$target" "$theme_dir/palette.env"
+    "$theme_dir/build.sh"
+    [[ -f "$wallpaper" ]] && feh --bg-fill "$wallpaper"
+    pgrep -x i3 >/dev/null && i3-msg restart >/dev/null
+    echo "active: $name"
+}

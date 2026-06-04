@@ -10,8 +10,7 @@ My personal Arch Linux desktop configuration managed with [Ansible](https://www.
 - **Launcher:** Rofi
 - **Terminal:** Alacritty
 - **Compositor:** Picom
-- **Display manager:** LightDM
-- **Audio:** Pipewire + Wireplumber
+- **Display manager:** greetd
 - **Shell:** Bash
 
 ## Theme system
@@ -35,6 +34,7 @@ the wallpaper if a matching image exists in `~/Pictures/`, and restarts i3.
 ```bash
 git clone https://github.com/rauti0/dotfiles.git ~/dotfiles
 cd ~/dotfiles/ansible
+
 ansible-playbook playbook.yml --ask-become-pass
 ```
 
@@ -45,9 +45,9 @@ into place.
 
 ```
 dotfiles/
-├── ansible/     playbook and roles (packages, dotfiles)
+├── ansible/     playbook and roles
 ├── config/      configs linked into ~/.config/
 ├── home/        dotfiles linked into ~
-├── system/      root-owned configs (e.g. LightDM → /etc)
+├── system/      root-owned configs 
 └── README.md
 ```

@@ -1,0 +1,12 @@
+podman() {
+    case "$1" in
+        run|create)
+            local cmd=$1
+            shift
+            command podman "$cmd" --init "$@"
+            ;;
+        *)
+            command podman "$@"
+            ;;
+    esac
+}
