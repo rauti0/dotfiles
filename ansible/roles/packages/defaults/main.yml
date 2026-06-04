@@ -17,8 +17,7 @@ packages:
   - neovim
 
   # Display manager
-  - lightdm
-  - lightdm-gtk-greeter
+  - greetd
 
   # Audio
   - pipewire

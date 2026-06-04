@@ -1,11 +1,8 @@
-- name: Copy lightdm configs to /etc/lightdm
+- name: Copy greetd config
   become: true
   ansible.builtin.copy:
-    src: "{{ dotfiles_root }}/system/lightdm/{{ item }}"
-    dest: "/etc/lightdm/{{ item }}"
+    src: "{{ dotfiles_root }}/system/greetd/config.toml"
+    dest: "/etc/greetd/config.toml"
     owner: root
     group: root
     mode: "0644"
-  loop:
-    - lightdm.conf
-    - lightdm-gtk-greeter.conf
