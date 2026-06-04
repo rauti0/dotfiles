@@ -1,0 +1,18 @@
+nvidia_packages:
+  - nvidia-open
+  - nvidia-utils
+  - nvidia-settings
+
+amd_gpu_packages:
+  - mesa
+  - vulkan-radeon
+  - libva-mesa-driver
+
+intel_gpu_packages:
+  - mesa
+  - vulkan-intel
+  - intel-media-driver
+
+laptop_packages:
+  - brightnessctl
+  - pamixer

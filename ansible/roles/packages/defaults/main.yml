@@ -50,6 +50,7 @@ packages:
   - fzf
   - bat
   - tealdeer
+  - btop
 
   # Network
   - networkmanager

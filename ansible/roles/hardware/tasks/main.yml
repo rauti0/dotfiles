@@ -1,0 +1,54 @@
+- name: Detect GPU
+  ansible.builtin.shell: lspci | grep -E "VGA|3D|Display"
+  register: gpu_info
+  changed_when: false
+  check_mode: false
+
+- name: Check for laptop battery
+  ansible.builtin.shell: ls /sys/class/power_supply/ | grep -E "^BAT[0-9]"
+  register: battery_check
+  changed_when: false
+  failed_when: false
+  check_mode: false
+
+- name: Install AMD microcode
+  become: true
+  community.general.pacman:
+    name: amd-ucode
+    state: present
+  when: "'AMD' in ansible_facts['processor'] | join"
+
+- name: Install Intel microcode
+  become: true
+  community.general.pacman:
+    name: intel-ucode
+    state: present
+  when: "'Intel' in ansible_facts['processor'] | join"
+
+- name: Install NVIDIA drivers
+  become: true
+  community.general.pacman:
+    name: "{{ nvidia_packages }}"
+    state: present
+  when: "'NVIDIA' in gpu_info.stdout"
+
+- name: Install AMD GPU drivers
+  become: true
+  community.general.pacman:
+    name: "{{ amd_gpu_packages }}"
+    state: present
+  when: "'AMD' in gpu_info.stdout or 'Radeon' in gpu_info.stdout"
+
+- name: Install Intel GPU drivers
+  become: true
+  community.general.pacman:
+    name: "{{ intel_gpu_packages }}"
+    state: present
+  when: "'Intel' in gpu_info.stdout"
+
+- name: Install laptop packages
+  become: true
+  community.general.pacman:
+    name: "{{ laptop_packages }}"
+    state: present
+  when: battery_check.stdout != ''
